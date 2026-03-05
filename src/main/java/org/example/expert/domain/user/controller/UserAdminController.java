@@ -1,6 +1,7 @@
 package org.example.expert.domain.user.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.expert.domain.common.annotation.AdminLogging;
 import org.example.expert.domain.user.dto.request.UserRoleChangeRequest;
 import org.example.expert.domain.user.service.UserAdminService;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ public class UserAdminController {
 
     private final UserAdminService userAdminService;
 
+    @AdminLogging
     @PatchMapping("/admin/users/{userId}")
     public ResponseEntity<Void>changeUserRole(@PathVariable long userId
             , @RequestBody UserRoleChangeRequest userRoleChangeRequest) {

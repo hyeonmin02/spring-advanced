@@ -2,6 +2,7 @@ package org.example.expert.domain.comment.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.expert.domain.comment.service.CommentAdminService;
+import org.example.expert.domain.common.annotation.AdminLogging;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ public class CommentAdminController {
 
     private final CommentAdminService commentAdminService;
 
+    @AdminLogging
     @DeleteMapping("/admin/comments/{commentId}")
     public ResponseEntity<Void> deleteComment(@PathVariable long commentId) {
         commentAdminService.deleteComment(commentId);
